@@ -20,7 +20,7 @@ class Example(QWidget, Ui_MainWindow):
         lattitude = self.lattitude.text()
         spn = self.spn.text()
         type_maps = self.type_maps.currentText()
-        picture = getImage(','.join((longitude, lattitude), spn, type_maps))
+        picture = getImage(','.join((longitude, lattitude)), ','.join((spn, spn)), type_maps)
         self.pixmap = QPixmap.fromImage(QImage.fromData(picture))
         self.image.setPixmap(self.pixmap)
 
