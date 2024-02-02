@@ -25,8 +25,8 @@ class Example(QWidget, Ui_MainWindow):
             self.show_image_()
 
     def show_image_(self):
-        longitude_ = self.longitude.text()
-        lattitude_ = self.lattitude.text()
+        longitude = self.longitude.text()
+        lattitude = self.lattitude.text()
         self.spn_ = self.spn.text()
         type_maps = self.type_maps.currentText()
         picture = getImage(','.join((longitude, lattitude)), ','.join((self.spn_, self.spn_)), type_maps)
