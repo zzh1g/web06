@@ -66,10 +66,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Task_1"))
-        self.lattitude.setText(_translate("MainWindow", "55.703118"))
-        self.longitude.setText(_translate("MainWindow", "37.530887"))
+        self.lattitude.setText(_translate("MainWindow", "68.97"))
+        self.longitude.setText(_translate("MainWindow", "33.1"))
         self.show_image.setText(_translate("MainWindow", "Ввод"))
-        self.spn.setText(_translate("MainWindow", "0.002"))
+        self.spn.setText(_translate("MainWindow", "0.02"))
         self.api_longitude.setText(_translate("MainWindow", "Долгота"))
         self.api_lattitude.setText(_translate("MainWindow", "Широта"))
         self.api_type_maps.setText(_translate("MainWindow", "Вид карты"))
