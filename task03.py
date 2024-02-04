@@ -22,16 +22,16 @@ class Example(QWidget, Ui_MainWindow):
             self.spn = str(float(self.spn) * 2)
             self.show_image_()
         elif event.key() == Qt.Key_Up:
-            self.lattitude = str(float(self.lattitude) - float(self.spn) / 4)
-            self.show_image_()
-        elif event.key() == Qt.Key_Down:
             self.lattitude = str(float(self.lattitude) + float(self.spn) / 4)
             self.show_image_()
+        elif event.key() == Qt.Key_Down:
+            self.lattitude = str(float(self.lattitude) - float(self.spn) / 4)
+            self.show_image_()
         elif event.key() == Qt.Key_Left:
-            self.longitude = str(float(self.longitude) + float(self.spn) / 4)
+            self.longitude = str(float(self.longitude) - float(self.spn) / 4)
             self.show_image_()
         elif event.key() == Qt.Key_Right:
-            self.longitude = str(float(self.longitude) - float(self.spn) / 4)
+            self.longitude = str(float(self.longitude) + float(self.spn) / 4)
             self.show_image_()
 
     def show_image_(self):
@@ -42,23 +42,28 @@ class Example(QWidget, Ui_MainWindow):
         self.setFocus()
 
     def push(self):
-        self.longitude = self.longitude.text()
-        self.lattitude = self.lattitude.text()
-        self.spn = self.spn.text()
-        self.type_maps = self.type_maps.currentText()
+        self.longitude = self.longitude_.text()
+        self.lattitude = self.lattitude_.text()
+        self.spn = self.spn_.text()
+        self.type_maps = self.type_maps_.currentText()
         self.show_image_()
 
     def initUI(self):
         self.setWindowTitle('Отображение карты')
-        self.longitude = self.longitude.text()
-        self.lattitude = self.lattitude.text()
-        self.spn = self.spn.text()
-        self.type_maps = self.type_maps.currentText()
+        self.longitude = self.longitude_.text()
+        self.lattitude = self.lattitude_.text()
+        self.spn = self.spn_.text()
+        self.type_maps = self.type_maps_.currentText()
         self.show_image_()
+
+
+def except_hook(cls, exception, traceback):
+    sys.__excepthook__(cls, exception, traceback)
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
     ex.show()
+    sys.excepthook = except_hook
     sys.exit(app.exec())
